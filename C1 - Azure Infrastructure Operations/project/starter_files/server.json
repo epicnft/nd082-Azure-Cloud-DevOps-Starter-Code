@@ -5,8 +5,19 @@
 		"subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}"
 	},
 	"builders": [{
-		**YOUR CODE HERE**
-	}],
+		"type": "azure-arm",
+		"client_id": "{{user client_id}}",
+		"client_secret": "{{user client_secret}}",
+		"subscription_id": "{{user subscription_id}}",
+		"tenant_id": "{{env ARM_TENANT_ID}}",
+		"managed_image_name": "my-server-image",
+		"os_type": "Linux",
+		"image_publisher": "Canonical",
+		"image_offer": "UbuntuServer",
+		"image_sku": "18.04-LTS",
+		"location": "westus",
+		"vm_size": "Standard_D1_v2"
+		}],
 	"provisioners": [{
 		"inline": [
 			"echo 'Hello, World!' > index.html",
